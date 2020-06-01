@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin-left: 30px;
+      }
+      table {
+        border: 1px dashed #999;
+      }
+      input[type="submit"] {
+        background-color: red;
+      }
+      input[type="reset"] {
+        background-color: green;
+      }
+      .center {
+        text-align: center;
+        padding: 10px 0;
+      }
+      tr td:nth-child(2) {
+        width: 400px;
+      }
+      input[type="text"] {
+        width: 350px;
+      }
+      button {
+        border: 0;
+        background-color: white;
+        font-size: 1.6em;
+      }
+      /* CSS cho form khảo sát thông tin */
+      .kstt {
+        background-color: #999999;
+      }
+      .kstt legend {
+        font-size: 18px;
+        font-weight: bold;
+        color: brown;
+      }
+      .kstt label {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="xl.php" method="POST">
+      <!-- Soạn  thảo các trình điều khiển -->
+      <table>
+        <tr>
+          <td><label for="fullname">Họ và tên:</label></td>
+          <td><input type="text" id="fullname" name="fullname" placeholder="Vui lòng điền họ và tên đầy đủ" required /></td>
+        </tr>
+        <tr>
+          <td>Ngày tháng năm sinh:</td>
+          <td><input type="datetime" placeholder="nhập ngày tháng" /></td>
+        </tr>
+        <tr>
+          <td>Nơi sinh:</td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td>Địa chỉ:</td>
+          <td><input type="text" /></td>
+        </tr>
+        <tr>
+          <td><label for="city">Thành phố:</label></td>
+          <td>
+            <select name="city" id="city">
+              <option value="0">--Chọn thành phố--</option>
+              <option value="1">Buôn Ma Thuột</option>
+              <option value="2">Gia Lai</option>
+              <option value="3">Kon Tum</option>
+              <option value="4">Đà Lạt</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="province">Tỉnh:</label></td>
+          <td>
+            <select name="province" id="province">
+              <option value="0">--Chọn Tỉnh-</option>
+              <option value="630000">Đắk Lắk</option>
+              <option value="600000">Gia Lai</option>
+              <option value="580000">Kon Tum</option>
+              <option value="670000">Đà Lạt</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Gới tính:</td>
+          <td><input type="radio" name="sex" value="female" checked />Nam <input type="radio" name="sex" />Nữ <input type="radio" name="sex" />Khác</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td><input type="email" /></td>
+        </tr>
+        <tr>
+          <td>Password đăng nhập Email:</td>
+          <td><input type="password" /></td>
+        </tr>
+        <tr>
+          <td>Sở thích</td>
+          <td><input type="checkbox" /> Đá bóng<input type="checkbox" /> Bơi lội <input type="checkbox" /> Cầu lông</td>
+        </tr>
+        <tr>
+          <td>Ảnh thẻ</td>
+          <td><input type="file" /></td>
+        </tr>
+        <tr>
+          <td><label for="textarea">Nội dung khác:</label></td>
+          <td><textarea>Đây là nơi bạn chia sẻ thêm ý kiến!</textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" class="center">
+            <input type="submit" onclick="onSubmit()" value="Gửi dữ liệu" /> <input type="reset" value="Làm lại" />
+            <button>🆗</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <form oninput="output_tdvh.value=parseInt(tdvh.value)">
+      <fieldset>
+        <legend>Trình độ học vấn:</legend>
+        <label for="tdvh">Trình độ văn hóa:</label>
+        <input type="range" name="tdvh" min="1" max="12" />
+        <output name="output_tdvh"></output>/12
+      </fieldset>
+    </form>
+    <br /><br />
+    <h2>Biểu mẫu khảo sát thông tin</h2>
+    <p>Lưu ý: (*) là <strong>bắt buộc</strong> phải <u>điền</u> đầy đủ</p>
+    <hr />
+    <form action="xxx.php" method="POST" class="kstt">
+      <fieldset>
+        <legend>Thông tin cá nhân</legend>
+        <label for="fullname">Họ và tên(*):</label>
+        <input required type="text" name="fullname" placeholder="Nhập họ và tên" />
+
+        <label for="gender">Giới tính:</label>
+        <input type="radio" name="gender" /> Nam <input type="radio" name="gender" /> Nữ <input type="radio" name="gender" />Khác<br />
+        <label for="birthday">Ngày sinh:</label>
+        <input type="date" /><br />
+        <label for="email">Địa chỉ Email(*):</label>
+        <input required type="email" name="email" /><br />
+        <!-- -	Số điện thoại, người dùng phải nhập theo định dạng 10 số theo mẫu 
+          [xxx]-[xxx]-[xxxx] Ví dụ: 090-651-3555  -->
+        <label for="phone">Số điện thoại(*):</label>
+        <input required type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Nhập theo mẫu [xxx]-[xxx]-[xxxx]" /><br />
+        <label for="address">Địa chỉ:</label>
+        <input type="text" name="address" />
+        <label for="city-province">Thành phố - Huyện/Tỉnh</label>
+        <select name="city-province">
+          <optgroup label="Đắk Lắk">
+            <option value="bmt">Tp.Buôn Ma Thuột</option>
+            <option value="">Ea Kar</option>
+            <option value="">Buôn Đôn</option>
+            <option value="">Ea Súp</option>
+          </optgroup>
+          <optgroup label="Gia Lai">
+            <option value="bmt">Tp.Plây Ku</option>
+            <option value="">An Khê</option>
+            <option value="">Chư Prông</option>
+            <option value="">Chư Sê</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <fieldset>
+        <legend>Thông tin khảo sát</legend>
+        <label for="sothich">Sở thích của bạn là gì?</label>
+        <input type="checkbox" name="sothich" />Đá bóng <input type="checkbox" name="sothich" />Bơi lội <input type="checkbox" name="sothich" />Bắn cung <input type="checkbox" name="sothich" />Đánh
+        Golf
+      </fieldset>
+      <input type="submit" /><input type="reset" />
+    </form>
+
+    <script>
+      // Validation - Xác thực thông tin
+      function onSubmit() {
+        var hoVaTen = document.getElementById("fullname").value;
+        alert(hoVaTen);
+      }
+    </script>
+  </body>
+</html>

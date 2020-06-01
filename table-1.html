@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      tr,
+      td,
+      th {
+        border: 1px solid red;
+      }
+      caption {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: blueviolet;
+      }
+      td {
+        vertical-align: bottom;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Basic HTML Table</h2>
+    <!-- Cấu trúc bảng 
+    table: tạo bảng
+    tr:tạo dòng
+    td:tạo cột
+    cell trong bảng được tạo bởi các thẻ <td></td> để chứa dữ liệu
+    th: chỉ định dữ liệu dạng tiêu đề
+    caption: mô tả nội dung khác cho bảng
+    -->
+
+    <!-- Các thuộc tính của bảng
+      border : quy định đường viền của bảng (hạn chế sử dụng)
+      bgcolor: quy định màu nền của bảng (hạn chế sử dụng)
+      
+      width: chiều rộng
+      height: chiều cao
+      
+      cellspacing: khoảng cách giữa các ô (cell) - tương ứng với border-spacing khi css
+      cellpadding: khoảng cách padding giữa dữ liệu với ô chứa nó - tương ứng với padding khi css
+      
+      text-align: căn theo chiều ngang
+      vertical-align: căn theo chiều dọc
+      
+      colspan: gộp các ô trên cùng một cột
+      rowspan: gộp các ô trên cùng một hàng
+      ->lấy bao nhiêu thì bỏ bấy nhiêu
+
+      thead,tbody,tfoot: cấu trúc bảng thành các phần riêng biệt (nhóm các nội dung)
+    -->
+    <table cellspacing="0" cellpadding="30">
+      <caption>
+        Danh sách học sinh
+      </caption>
+      <tr>
+        <td rowspan="3">1</td>
+        <td colspan="2" height="80">2</td>
+        <!-- <td>3</td> -->
+        <td rowspan="3">4</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <!-- <td>6</td> -->
+        <td>7</td>
+        <td>8</td>
+        <!-- <td>9</td> -->
+        <td>10</td>
+      </tr>
+      <tr>
+        <!-- <td>11</td> -->
+        <td colspan="2">12</td>
+        <!-- <td>13</td> -->
+        <!-- <td>14</td> -->
+        <td>15</td>
+      </tr>
+    </table>
+  </body>
+</html>
